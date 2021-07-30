@@ -1,0 +1,7 @@
+{
+  "name": "appBasket",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
