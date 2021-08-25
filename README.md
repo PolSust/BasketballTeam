@@ -10,5 +10,6 @@ Featuring an admin control pannel where you can create Matches and Accounts so t
 
 * How to correctly user Angular Guards 
 * I got a better understanding of how to use Firebase 
+* How to create an searchbar with auto completion using data from an API
 * And a better understanding of both Promises and Observables
 
