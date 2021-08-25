@@ -1,0 +1,38 @@
+<app-tabs-header pageTitle="Admin"></app-tabs-header>
+
+<ion-content [fullscreen]="true">
+
+	<ion-button expand="block" class="ion-margin" (click)="gotoPlayersList()">
+
+		<ion-row>
+			<ion-col>
+				<ion-icon name="person-circle" size="large"></ion-icon>
+			</ion-col>
+			<ion-col class="verticalAlign">
+				<strong>
+					JOUEURS
+				</strong>
+			</ion-col>
+		</ion-row>
+
+	</ion-button>
+
+	<ion-button expand="block" class="ion-margin" (click)="gotoTeamsList()">
+		<ion-row>
+			<ion-col>
+				<ion-icon name="basketball" size="large"></ion-icon>
+			</ion-col>
+			<ion-col class="verticalAlign"><strong> MATCHS</strong></ion-col>
+		</ion-row>
+	</ion-button>
+
+	<ion-button expand="block" class="ion-margin" (click)="gotoUserCreate()">
+		<ion-row>
+			<ion-col>
+				<ion-icon name="person-add" size="large"></ion-icon>
+			</ion-col>
+			<ion-col class="verticalAlign"><strong> CREER UN COMPTE JOUEUR</strong></ion-col>
+		</ion-row>
+	</ion-button>
+
+</ion-content>

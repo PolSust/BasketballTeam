@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+	<ion-toolbar>
+		<ion-title>
+			{{pageTitle}} |
+			Bienvenue {{connectedUser.name}}!
+		</ion-title>
+		<ion-buttons slot="end" class="ion-margin">
+			<ion-icon name="person-circle" size="large"></ion-icon>
+		</ion-buttons>
+		<ion-buttons slot="end" class="ion-margin-end" (click)="alertOnLogout()">
+			<ion-icon name="power" size="large"></ion-icon>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>

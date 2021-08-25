@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Matchs</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<app-match-form [nonSelectedPlayers]="nonSelectedPlayers" [create]="true" [match]="match"></app-match-form>
+
+	<ion-searchbar></ion-searchbar>
+
+
+	<ion-list>
+		<ion-item *ngFor="let match of allMatchs">
+			<ion-col size="12">
+				<ion-card (click)="gotoMatchDetails(match)">
+					<ion-card-header>
+						<p>
+							<ion-card-title>
+								<ion-icon size="big" name="basketball"></ion-icon> {{match.name}}
+							</ion-card-title>
+						</p>
+						<p><strong>{{match.date | date: "dd/MM/yyyy"}}</strong></p>
+						<p><strong>{{match.date | date: "HH:mm"}}</strong></p>
+					</ion-card-header>
+				</ion-card>
+			</ion-col>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

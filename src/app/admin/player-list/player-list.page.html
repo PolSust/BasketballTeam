@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>Liste des joueurs</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-margin">
+
+	<ion-list>
+		<ion-item *ngFor="let user of users">
+			<ion-chip>
+				<ion-icon expand="block" name="person-circle"></ion-icon>
+				<strong>{{user.name}}</strong>
+			</ion-chip>
+			<ion-button slot="end" fill="clear" (click)="presentModal(user)">
+				<ion-icon name="create" size="large"></ion-icon>
+			</ion-button>
+		</ion-item>
+	</ion-list>
+
+</ion-content>

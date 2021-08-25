@@ -1,0 +1,69 @@
+<form #matchForm="ngForm" (ngSubmit)="onSubmit()">
+	<ion-grid>
+
+		<ion-item>
+			<ion-label position="floating">Nom du match :</ion-label>
+			<ion-input [(ngModel)]="match.name" name="name" required></ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-label position="floating">Choisir une date : </ion-label>
+			<ion-datetime displayFormat="DD MMM YYYY" [(ngModel)]="match.date" name="date"
+				monthShortNames="jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec"></ion-datetime>
+		</ion-item>
+
+		<ion-item class="villeSearch">
+			<ion-label position="floating">Ville :</ion-label>
+			<ion-input class="villeSearchInp" (click)="onClick()" (ionBlur)="onBlur()"
+				(ionChange)="searchCity(match.city)" [(ngModel)]="match.city" name="city" required></ion-input>
+			<ion-list class="listAutocomplete">
+				<ion-item *ngFor="let city of cityData; let i = index">
+					<div (click)="cityClick(city.nom)">
+						<ion-label>{{city.nom}}</ion-label>
+					</div>
+				</ion-item>
+			</ion-list>
+		</ion-item>
+
+		<ion-input [ngModel]="match.location.latitude" name="latitude" hidden></ion-input>
+		<ion-input [ngModel]="match.location.longitude" name="longitude" hidden></ion-input>
+
+
+		<ion-list class="ion-margin">
+			<ion-label position="floating">Joueurs sélectionnés :</ion-label>
+			<ion-item>
+				<ion-row size="12">
+					<div class="ion-wrap" *ngFor="let player of match.players">
+						<ion-chip class="player-chip" (click)="removePlayer(player)">
+							<ion-avatar>
+								<ion-icon name="person-circle" size="large"></ion-icon>
+							</ion-avatar>
+							<ion-label>{{player.name}}</ion-label>
+						</ion-chip>
+					</div>
+				</ion-row>
+			</ion-item>
+		</ion-list>
+		<ion-list class="ion-margin">
+			<ion-label position="floating">Joueurs pas sélectionnés :</ion-label>
+			<ion-item>
+				<ion-row size="12">
+					<div class="ion-wrap" *ngFor="let player of nonSelectedPlayers">
+						<ion-chip class="player-chip" (click)="addPlayer(player)">
+							<ion-avatar>
+								<ion-icon name="person-circle" size="large"></ion-icon>
+							</ion-avatar>
+							<ion-label>{{player.name}}</ion-label>
+						</ion-chip>
+					</div>
+				</ion-row>
+			</ion-item>
+		</ion-list>
+
+		<ion-button expand="block" type="submit" [disabled]="!matchForm.valid">
+			<strong *ngIf="create">Ajouter match</strong>
+			<strong *ngIf="!create">Mettre à jour match</strong>
+		</ion-button>
+
+	</ion-grid>
+</form>

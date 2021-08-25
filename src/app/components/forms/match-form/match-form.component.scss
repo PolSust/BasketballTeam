@@ -1,0 +1,34 @@
+.villeSearch {
+	position: relative !important;
+	overflow: visible !important;
+
+}
+
+.listAutocomplete {
+	position: absolute !important;
+	background-color: #fff !important;
+	top: 55px;
+	// display: none;
+}
+
+.listAutocomplete div {
+	min-width: 250px;
+}
+.listAutocomplete  {
+	box-shadow: black 0px 0px 5px;
+}
+
+.villeSearchInp:active+.listAutocomplete {
+	display: block !important;
+}
+
+// .listAutocomplete:not(:focus) {
+// 	opacity: 0 !important;
+// }
+
+
+
+
+// .listAutocomplete ion-item {
+// 	margin-bottom: 20px;
+// }

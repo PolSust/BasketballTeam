@@ -1,0 +1,26 @@
+ion-input{
+  background-color: white;
+  border-radius: 25px;
+  border: rgb(185, 185, 185) 2px solid;
+}
+
+ion-card{
+  border-radius: 10px;
+
+}
+
+.logindiv{
+display: flex;
+align-items: center;
+height: 100%;
+background-image: url('https://www.adorama.com/alc/wp-content/uploads/2010/02/shutterstock_256845850.jpg');
+background-repeat: no-repeat;
+background-position: center;
+background-color: black;
+
+}
+
+.native-input.sc-ion-input-md{
+  color: black !important;
+
+}

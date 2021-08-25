@@ -1,0 +1,63 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-button (click)="exitModal()" fill="clear">
+			<ion-icon name="arrow-back-outline"></ion-icon>
+		</ion-button>
+		<ion-title>Match details</ion-title>
+		<!--Player profile icon here when user=true-->
+		<ion-buttons slot="end" class="ion-margin">
+			<ion-icon name="person-circle" size="large"></ion-icon>
+		</ion-buttons>
+		<!--Player profile icon here when user=true-->
+	</ion-toolbar>
+	<ion-fab vertical="top" horizontal="end" *ngIf="connectedUser.role == 'admin'">
+		<ion-fab-button>
+			<ion-icon name="ellipsis-vertical"></ion-icon>
+		</ion-fab-button>
+		<ion-fab-list>
+			<ion-fab-button color="dark" (click)="updateMatch()">
+				<ion-icon name="create"></ion-icon>
+			</ion-fab-button>
+			<ion-fab-button color="dark" (click)="alertOnDelete()">
+				<ion-icon name="trash"></ion-icon>
+			</ion-fab-button>
+		</ion-fab-list>
+	</ion-fab>
+
+</ion-header>
+
+<ion-content>
+
+	<ion-card>
+		<ion-card-header>
+			<p>
+				<ion-card-title>
+					<ion-icon size="large" name="basketball"></ion-icon>
+					<p class="ion-text-center"><strong>{{match.name}}</strong></p>
+				</ion-card-title>
+			</p>
+			<p><strong>{{match.date | date: "dd/MM/yyyy"}}</strong></p>
+			<p><strong>{{match.date | date: "HH:mm"}}</strong></p>
+			<p><strong>{{match.city}}</strong></p>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-chip class="player-chip" *ngFor="let player of match.players">
+				<ion-avatar>
+					<ion-icon name="person-circle" size="large"></ion-icon>
+				</ion-avatar>
+				<ion-label>{{player.name}}</ion-label>
+			</ion-chip>
+
+			<agm-map class="map" [zoom]="10" [latitude]="match.location.latitude"
+				[longitude]="match.location.longitude">
+				<agm-marker [latitude]="match.location.latitude" [longitude]="match.location.longitude">
+				</agm-marker>
+			</agm-map>
+			<ion-button (click)="openMaps(match.location)" expand="block" shape="round">
+				Ouvrir sur Maps
+			</ion-button>
+
+		</ion-card-content>
+	</ion-card>
+
+</ion-content>
