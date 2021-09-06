@@ -1,5 +1,5 @@
 # BasketballTeam
-## Mobile application created in 1 week using Angular, Ionic and FireBase
+## Mobile application created in 1 week using Angular, Ionic and Firebase
 
 This is an app created for a fictional basketball team.
 
